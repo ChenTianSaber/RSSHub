@@ -6083,6 +6083,105 @@
     "name": "Behance",
     "url": "www.behance.net"
   },
+  "beijingprice": {
+    "routes": {
+      "/:category{.+}?": {
+        "path": "/:category{.+}?",
+        "name": "资讯",
+        "url": "beijingprice.cn",
+        "maintainers": [
+          "nczitzk"
+        ],
+        "example": "/beijingprice/jgzx/xwzx",
+        "parameters": {
+          "category": "分类，默认为 `jgzx/xwzx` 即新闻资讯，可在对应分类页 URL 中找到"
+        },
+        "description": ":::tip\n  若订阅 [新闻资讯](http://www.beijingprice.cn/jgzx/xwzx/)，网址为 `http://www.beijingprice.cn/jgzx/xwzx/`。截取 `https://beijingprice.cn/` 到末尾 `/` 的部分 `jgzx/xwzx` 作为参数填入，此时路由为 [`/beijingprice/jgzx/xwzx`](https://rsshub.app/beijingprice/jgzx/xwzx)。\n  :::\n\n  #### [价格资讯](http://www.beijingprice.cn/jgzx/xwzx/)\n\n  | [新闻资讯](http://www.beijingprice.cn/jgzx/xwzx/)       | [工作动态](http://www.beijingprice.cn/jgzx/gzdt/)       | [各区动态](http://www.beijingprice.cn/jgzx/gqdt/)       | [通知公告](http://www.beijingprice.cn/jgzx/tzgg/)       | [价格早报](http://www.beijingprice.cn/jgzx/jgzb/)       |\n  | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- | ------------------------------------------------------- |\n  | [jgzx/xwzx](https://rsshub.app//beijingprice/jgzx/xwzx) | [jgzx/gzdt](https://rsshub.app//beijingprice/jgzx/gzdt) | [jgzx/gqdt](https://rsshub.app//beijingprice/jgzx/gqdt) | [jgzx/tzgg](https://rsshub.app//beijingprice/jgzx/tzgg) | [jgzx/jgzb](https://rsshub.app//beijingprice/jgzx/jgzb) |\n\n  #### [综合信息](http://www.beijingprice.cn/zhxx/cbjs/)\n\n  | [价格听证](http://www.beijingprice.cn/zhxx/jgtz/)       | [价格监测定点单位名单](http://www.beijingprice.cn/zhxx/jgjcdddwmd/) | [部门预算决算](http://www.beijingprice.cn/bmys/) |\n  | ------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------ |\n  | [zhxx/jgtz](https://rsshub.app//beijingprice/zhxx/jgtz) | [zhxx/jgjcdddwmd](https://rsshub.app//beijingprice/zhxx/jgjcdddwmd) | [bmys](https://rsshub.app//beijingprice/bmys)    |\n",
+        "categories": [
+          "government"
+        ],
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportRadar": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "beijingprice.cn/:category?"
+            ]
+          },
+          {
+            "title": "价格资讯 - 新闻资讯",
+            "source": [
+              "beijingprice.cn/jgzx/xwzx/"
+            ],
+            "target": "/jgzx/xwzx"
+          },
+          {
+            "title": "价格资讯 - 工作动态",
+            "source": [
+              "beijingprice.cn/jgzx/gzdt/"
+            ],
+            "target": "/jgzx/gzdt"
+          },
+          {
+            "title": "价格资讯 - 各区动态",
+            "source": [
+              "beijingprice.cn/jgzx/gqdt/"
+            ],
+            "target": "/jgzx/gqdt"
+          },
+          {
+            "title": "价格资讯 - 通知公告",
+            "source": [
+              "beijingprice.cn/jgzx/tzgg/"
+            ],
+            "target": "/jgzx/tzgg"
+          },
+          {
+            "title": "价格资讯 - 价格早报",
+            "source": [
+              "beijingprice.cn/jgzx/jgzb/"
+            ],
+            "target": "/jgzx/jgzb"
+          },
+          {
+            "title": "综合信息 - 价格听证",
+            "source": [
+              "beijingprice.cn/zhxx/jgtz/"
+            ],
+            "target": "/zhxx/jgtz"
+          },
+          {
+            "title": "综合信息 - 价格监测定点单位名单",
+            "source": [
+              "beijingprice.cn/zhxx/jgjcdddwmd/"
+            ],
+            "target": "/zhxx/jgjcdddwmd"
+          },
+          {
+            "title": "综合信息 - 部门预算决算",
+            "source": [
+              "beijingprice.cn/bmys/"
+            ],
+            "target": "/bmys"
+          }
+        ],
+        "location": "index.ts"
+      }
+    },
+    "name": "北京价格",
+    "url": "beijingprice.cn",
+    "categories": [
+      "government"
+    ],
+    "description": ""
+  },
   "bellroy": {
     "routes": {
       "/new-releases": {
@@ -7349,11 +7448,15 @@
   },
   "bing": {
     "routes": {
-      "/": {
-        "path": "/",
+      "/:routeParams?": {
+        "path": "/:routeParams?",
+        "parameters": {
+          "routeParams": "额外参数type,story和lang:请参阅以下说明和表格"
+        },
         "radar": [
           {
             "source": [
+              "www.bing.com/",
               "cn.bing.com/"
             ],
             "target": ""
@@ -7361,9 +7464,12 @@
         ],
         "name": "每日壁纸",
         "maintainers": [
-          "FHYunCai"
+          "FHYunCai",
+          "LLLLLFish"
         ],
-        "url": "cn.bing.com/",
+        "url": "www.bing.com/",
+        "example": "/bing/type=UHD&story=1&lang=zh-CN",
+        "description": "| 参数    | 含义                 | 接受的值                                                      | 默认值       | 备注                                                     |\n|-------|--------------------|-----------------------------------------------------------|-----------|--------------------------------------------------------|\n| type  | 输出壁纸的像素类型          | UHD/1920x1080/1920x1200/768x1366/1080x1920/1080x1920_logo | 1920x1080 | 1920x1200与1080x1920_logo带有水印,输入的值不在接受范围内都会输出成1920x1080 |\n| story | 是否输出壁纸的故事          | 1/0                                                       | 0         | 输入的值不为1都不会输出故事                                         |\n| lang  | 输出壁纸图文的地区(中文或者是英文) | zh/en                                               | zh     | zh/en输出的壁纸图文不一定是一样的;如果en不生效,试着部署到其他地方               |\n",
         "location": "daily-wallpaper.ts"
       },
       "/search/:keyword": {
@@ -14797,6 +14903,36 @@
     "name": "大麦网",
     "url": "search.damai.cn"
   },
+  "dangdang": {
+    "routes": {
+      "/notice/:type?": {
+        "path": "/notice/:type?",
+        "categories": [
+          "programming"
+        ],
+        "example": "/dangdang/notice/1",
+        "parameters": {
+          "type": "公告分类，默认为全部"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "公告",
+        "maintainers": [
+          "353325487"
+        ],
+        "description": "| 类型     | type |\n  | -------- | ---- |\n  | 全部      | 0    |\n  | 其他      | 1    |\n  | 规则变更   | 2    |",
+        "location": "notice.ts"
+      }
+    },
+    "name": "当当开放平台",
+    "url": "open.dangdang.com"
+  },
   "dapenti": {
     "routes": {
       "/subject/:id": {
@@ -15530,6 +15666,36 @@
     },
     "name": "DevolverDigital",
     "url": "devolverdigital.com"
+  },
+  "dewu": {
+    "routes": {
+      "/declaration/:categoryId?": {
+        "path": "/declaration/:categoryId?",
+        "categories": [
+          "programming"
+        ],
+        "example": "/dewu/declaration/1010580020",
+        "parameters": {
+          "categoryId": "公告分类, 可在页面URL获取 默认为1010580020"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "平台公告",
+        "maintainers": [
+          "blade0910"
+        ],
+        "description": "| 类型             | type       |\n  | ---------------- | ---------- |\n  | 技术变更         | 1010580020 |\n  | 服务市场规则中心 | 1014821004 |\n  | 规则变更         | 1011202692 |\n  | 维护公告         | 1010568195 |",
+        "location": "declaration.ts"
+      }
+    },
+    "name": "得物",
+    "url": "dewu.com"
   },
   "dgjyw": {
     "routes": {
@@ -19935,7 +20101,7 @@
           "nczitzk"
         ],
         "url": "finviz.com/news.ashx",
-        "description": "| News | Blog |\n  | ---- | ---- |\n  | news | blog |",
+        "description": "| News | Blogs |\n  | ---- | ---- |\n  | news | blogs |",
         "location": "news.ts"
       },
       "/news/:ticker": {
@@ -30732,6 +30898,49 @@
     "name": "InfoQ 中文",
     "url": "infoq.cn"
   },
+  "informedainews": {
+    "routes": {
+      "/zh-Hans/docs/:type": {
+        "path": "/zh-Hans/docs/:type",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/informedainews/zh-Hans/docs/world-news-daily",
+        "parameters": {
+          "type": "world-news-daily|tech-enthusiast-weekly|ai-enthusiast-daily"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "informedainews.com",
+              "informedainews.com/zh-Hans/docs/:type",
+              "informedainews.com/docs/:type"
+            ],
+            "target": "/zh-Hans/docs/:type"
+          }
+        ],
+        "name": "知闻AI",
+        "maintainers": [
+          "guicaiyue"
+        ],
+        "location": "docs.ts"
+      }
+    },
+    "name": "Informed AI News",
+    "url": "informedainews.com",
+    "description": "\n:::tip\ninformed AI RSS feeds:\n\n-   World News Daily: 'https://rsshub.app/informedainews/zh-Hans/docs/world-news-daily'\n-   Tech Enthusiast Weekly: 'https://rsshub.app/informedainews/zh-Hans/docs/tech-enthusiast-weekly'\n-   AI Enthusiast Weekly: 'https://rsshub.app/informedainews/zh-Hans/docs/ai-enthusiast-daily'\n:::",
+    "zh": {
+      "name": "知闻AI"
+    }
+  },
   "informs": {
     "routes": {
       "/:category?": {
@@ -32535,6 +32744,36 @@
     },
     "name": "精真估",
     "url": "www.jingzhengu.com"
+  },
+  "jinritemai": {
+    "routes": {
+      "/docs/:dirId?": {
+        "path": "/docs/:dirId?",
+        "categories": [
+          "programming"
+        ],
+        "example": "/jinritemai/docs/19",
+        "parameters": {
+          "dirId": "公告分类, 可在页面URL获取 默认为全部"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "平台公告",
+        "maintainers": [
+          "blade0910"
+        ],
+        "description": "| 类型    | type    |\n  | --------- | ---------- |\n  | 全部公告    | 5    |\n  | 产品发布    | 19   |\n  | 规则变更    | 21   |\n  | 维护公告    | 20   |\n  | 其他公告    | 22   |",
+        "location": "docs.ts"
+      }
+    },
+    "name": "抖店开放平台",
+    "url": "op.jinritemai.com"
   },
   "jinse": {
     "routes": {
@@ -38048,6 +38287,41 @@
     },
     "name": "管理世界",
     "url": "mwm.net.cn"
+  },
+  "my-formosa": {
+    "routes": {
+      "/": {
+        "path": "/",
+        "categories": [
+          "new-media"
+        ],
+        "example": "/my-formosa",
+        "parameters": {},
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "my-formosa.com/"
+            ]
+          }
+        ],
+        "name": "首页",
+        "maintainers": [
+          "dzx-dzx"
+        ],
+        "url": "my-formosa.com",
+        "location": "index.ts"
+      }
+    },
+    "name": "美麗島電子報",
+    "url": "my-formosa.com"
   },
   "mydrivers": {
     "routes": {
@@ -49053,6 +49327,38 @@
   },
   "ruc": {
     "routes": {
+      "/ai/:category?": {
+        "path": "/ai/:category?",
+        "categories": [
+          "university"
+        ],
+        "example": "/ruc/ai",
+        "parameters": {
+          "category": "分类，见下方说明，默认为首页公告"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "ai.ruc.edu.cn/"
+            ]
+          }
+        ],
+        "name": "高瓴人工智能学院",
+        "maintainers": [
+          "yinhanyan"
+        ],
+        "url": "ai.ruc.edu.cn/",
+        "description": ":::tip\n  分类字段处填写的是对应中国人民大学高瓴人工智能学院分类页网址中介于 **`http://ai.ruc.edu.cn/`** 和 **/index.htm** 中间的一段，并将其中的 `/` 修改为 `-`。\n\n  如 [中国人民大学高瓴人工智能学院 - 新闻公告 - 学院新闻](http://ai.ruc.edu.cn/newslist/newsdetail/index.htm) 的网址为 `http://ai.ruc.edu.cn/newslist/newsdetail/index.htm` 其中介于 **`http://ai.ruc.edu.cn/`** 和 **/index.htm** 中间的一段为 `newslist/newsdetail`。随后，并将其中的 `/` 修改为 `-`，可以得到 `newslist-newsdetail`。所以最终我们的路由为 [`/ruc/ai/newslist-newsdetail`](https://rsshub.app/ruc/ai/newslist-newsdetail)\n    :::",
+        "location": "ai.ts"
+      },
       "/hr/:category?": {
         "path": "/hr/:category?",
         "categories": [
@@ -49086,8 +49392,11 @@
         "location": "hr.ts"
       }
     },
-    "name": "中国人民大学",
-    "url": "hr.ruc.edu.cn"
+    "name": "Renmin University of China",
+    "url": "ruc.edu.cn",
+    "zh": {
+      "name": "中国人民大学"
+    }
   },
   "runtrail": {
     "routes": {
@@ -52194,6 +52503,63 @@
         "description": "| 通知公告 | 学院动态 | 教学管理 | 动科大讲堂 | 就业信息 |\n  | -------- | -------- | -------- | ---------- | -------- |\n  | tzgg     | xydt     | jxgl     | dkdjt      | zpxx     |",
         "location": "dky.ts"
       },
+      "/jiaowu/jxtz": {
+        "path": "/jiaowu/jxtz",
+        "categories": [
+          "university"
+        ],
+        "example": "/sicau/jiaowu/jxtz",
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": false,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "radar": [
+          {
+            "source": [
+              "jiaowu.sicau.edu.cn/web/web/web/index.asp"
+            ],
+            "target": "/jiaowu/jxtz"
+          }
+        ],
+        "name": "教务处",
+        "maintainers": [
+          "hualiong"
+        ],
+        "url": "jiaowu.sicau.edu.cn/",
+        "location": "jiaowu.ts"
+      },
+      "/jk/:gid/:typeId/:sortType/:token": {
+        "path": "/jk/:gid/:typeId/:sortType/:token",
+        "categories": [
+          "university"
+        ],
+        "example": "/sicau/jk/0/0/2/8d95466cf63e537292b303cb92b5958c",
+        "parameters": {
+          "gid": "活动所属组织ID，见下表",
+          "typeId": "活动类别ID，见下表",
+          "sortType": "排序方式，见下表",
+          "token": "访问令牌，可通过示例中的令牌直接访问（会过期）"
+        },
+        "features": {
+          "requireConfig": false,
+          "requirePuppeteer": false,
+          "antiCrawler": true,
+          "supportBT": false,
+          "supportPodcast": false,
+          "supportScihub": false
+        },
+        "name": "二课活动",
+        "maintainers": [
+          "hualiong"
+        ],
+        "url": "jk.sicau.edu.cn",
+        "description": "\n\n:::tip\n**本校学生**可以直接 POST `https://jk.sicau.edu.cn/user/login/v1.0.0/snoLogin` 从返回结果中的 `token` 字段拿到个人令牌\n记得在url后添加以下**查询参数**：\n\n-   sid: `f1c97a0e81c24e98adb1ebdadca0699b`\n-   loginName: `你的学号`\n-   password: `你的i川农密码`\n\n:::\n\n:::warning\n由于i川农后台有请求限制，为避免一次性大量请求而被限流，每次订阅只请求结果的第一页数据，即前20条\n:::\n\n**活动所属组织ID：**\n\n0.  全部组织\n1.  管理学院\n2.  学生心理健康服务中心\n3.  档案馆\n4.  马克思主义学院\n5.  都江堰校区党政办\n6.  土木工程学院\n7.  林学院\n8.  动物医学院\n9.  保卫处\n10.  理学院\n11.  艺术与传媒学院\n12.  大学生艺术团\n13.  都江堰校区基础教学部\n14.  校纪委\n15.  生命科学学院\n16.  水利水电学院\n17.  国合处\n18.  商旅学院\n19.  风景园林学院\n20.  建筑与城乡规划学院\n21.  体育学院\n22.  校体委\n23.  校区团委\n24.  后勤管理处\n25.  教务处\n26.  人文学院\n27.  党委宣传部\n28.  食品学院\n29.  环境学院\n30.  国家重点实验室\n31.  党委统战部\n32.  草业科技学院\n33.  商学院\n34.  党委组织部\n35.  校团委\n36.  法学院\n37.  水稻研究所\n38.  研究生院\n39.  后勤服务总公司\n40.  招生就业处\n41.  学生社团管理与服务中心\n42.  经济学院\n43.  机电学院\n44.  都江堰校区综合办后管科\n45.  园艺学院\n46.  资源学院\n47.  学生处\n48.  农学院\n49.  公共管理学院\n50.  图书馆\n51.  校学生会\n52.  动物科技学院\n53.  信息工程学院\n\n**活动类别ID：**\n\n0. 所有类别\n1. 党团学习\n2. 学生干部社会工作\n3. 校院班任务\n4. 德育（志愿公益）\n5. 校本文化（校规校纪）\n6. 德育—社会实践\n7. 创新创业类\n8. 科技学术讲座\n9. 体育活动（新）\n10. 体质测试\n11. 文化艺术活动\n12. 文艺演出或讲座\n13. 劳动教育\n\n**排序方式：**\n\n| 即将开始 | 最新活动 | 可参与 |\n| -------- | -------- | -------- |\n| 1     | 2     | 4     |\n",
+        "location": "jk.ts"
+      },
       "/yan/:category?": {
         "path": "/yan/:category?",
         "categories": [
@@ -52260,7 +52626,7 @@
       }
     },
     "name": "四川农业大学",
-    "url": "dky.sicau.edu.cn"
+    "url": "www.sicau.edu.cn"
   },
   "sigsac": {
     "routes": {
@@ -54574,6 +54940,58 @@
           "moppman"
         ],
         "location": "search.ts"
+      },
+      "/sharefile-changelog/:sharefileID/:routeParams?": {
+        "path": "/sharefile-changelog/:sharefileID/:routeParams?",
+        "categories": [
+          "game"
+        ],
+        "example": "/steam/sharefile-changelog/2851063440/l=schinese",
+        "parameters": {
+          "sharefileID": "Steam community sharefile id. Usually refers to a workshop item.",
+          "routeParams": "Route parameters."
+        },
+        "radar": [
+          {
+            "title": "Sharefile Changelog",
+            "source": [
+              "steamcommunity.com/sharedfiles/filedetails/changelog/:sharefileID"
+            ],
+            "target": "/sharefile-changelog/:sharefileID"
+          }
+        ],
+        "description": "Steam Community Sharefile's Changelog. Primary used for a workshop item.\nHelpful route parameters:\n- `l=` language parameter, change the language of description.\n- `p=` page parameter, change the results page. p=1 by default.\n",
+        "name": "Sharefile Changelog",
+        "maintainers": [
+          "NyaaaDoge"
+        ],
+        "location": "sharefile-changelog.ts"
+      },
+      "/workshopsearch/:appid?/:routeParams?": {
+        "path": "/workshopsearch/:appid?/:routeParams?",
+        "categories": [
+          "game"
+        ],
+        "example": "/steam/workshopsearch/730",
+        "parameters": {
+          "appid": "Steam appid, can be found on the community hub page or store page URL, 730 by default.",
+          "routeParams": "Route parameters, can be found on the search result page URL. Route parameters located after the appid."
+        },
+        "radar": [
+          {
+            "title": "Workshop Search Results",
+            "source": [
+              "steamcommunity.com/app/:appid/workshop/"
+            ],
+            "target": "/workshopsearch/:appid"
+          }
+        ],
+        "description": "Steam Community Workshop Search Results.\nThe parameter 'l=language' changes the language of search results(if possible).\nFor example, route `/workshopsearch/730/l=schinese` will display the simplified Chinese descriptions of the entry.\n\nLanguage Parameter:\n\n| English | 简体中文 | 繁體中文 | 日本語   | 한국어  | ภาษาไทย | български | čeština | dansk  | Deutsch | español | latam | ελληνικά | français | italiano | Bahasa Indonesia | magyar    | Nederlands | norsk     | polski | português  | brasileiro | română   | русский | suomi   | svenska | Türkçe  | Tiếng Việt | українська |\n| ------- | -------- | -------- | -------- | ------- | ------- | --------- | ------- | ------ | ------- | ------- | ----- | -------- | -------- | -------- | ---------------- | --------- | ---------- | --------- | ------ | ---------- | ---------- | -------- | ------- | ------- | ------- | ------- | ---------- | ---------- |\n| english | schinese | tchinese | japanese | koreana | thai    | bulgarian | czech   | danish | german  | spanish | latam | greek    | french   | italian  | indonesian       | hungarian | dutch      | norwegian | polish | portuguese | brazilian  | romanian | russian | finnish | swedish | turkish | vietnamese | ukrainian  |\n\n",
+        "name": "Community Workshop Search",
+        "maintainers": [
+          "NyaaaDoge"
+        ],
+        "location": "workshop-search.ts"
       }
     },
     "name": "Steam",
@@ -67283,7 +67701,8 @@
         "radar": [
           {
             "source": [
-              "www.zhihu.com/:usertype/:id/posts"
+              "www.zhihu.com/:usertype/:id/posts",
+              "www.zhihu.com/:usertype/:id"
             ]
           }
         ],
